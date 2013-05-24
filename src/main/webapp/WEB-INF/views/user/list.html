@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+</head>
+
+<body>
+
+	<a th:href="@{/mvc/user/new}">Add New</a>
+	<table>
+		<tr><th>Username</th><th>Email</th><th>First name</th><th>Last Name</th></tr>
+		
+		<tr th:each="user : ${users}">
+			<td><a th:href="@{'/mvc/user/' + ${user.id}}" th:text="${user.username}">Test User</a></td>
+			<td th:text="${user.email}">test@email.com</td>
+			<td th:text="${user.firstName}">Test</td>
+			<td th:text="${user.lastName}">User</td>
+			<td>
+				<a th:href="@{'/mvc/user/' + ${user.id} + '/edit'}">Edit</a>
+				<a th:href="@{'/mvc/user/' + ${user.id} + '/delete'}">Delete</a>
+			</td>
+		</tr>
+	</table>
+
+</body>
+
+</html>

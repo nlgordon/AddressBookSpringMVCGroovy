@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+</head>
+
+<body>
+
+	<form method="post" th:object="${address}" th:action="${#httpServletRequest.requestURI}">
+	<dl>
+		<dt>User</dt>
+		<dd th:text="${address.user.firstName + ' ' + address.user.lastName}">Test User</dd>
+		<dt><label for="street">Street:</label></dt>
+		<dd>
+			<input type="text" th:field="*{street}"/>
+			<span th:errors="*{street}">[error]</span>
+		</dd>
+		<dt><label for="city">City:</label></dt>
+		<dd>
+			<input type="text" th:field="*{city}"/>
+			<span th:errors="*{city}">[error]</span>
+		</dd>
+		<dt><label for="state">State:</label></dt>
+		<dd>
+			<input type="text" th:field="*{state}"/>
+			<span th:errors="*{state}">[error]</span>
+		</dd>
+		<dt><label for="zip">Zip:</label></dt>
+		<dd>
+			<input type="text" th:field="*{zip}"/>
+			<span th:errors="*{zip}">[error]</span>
+		</dd>
+	</dl>
+	<input type="submit" value="Save" />
+	</form>
+
+</body>
+
+</html>

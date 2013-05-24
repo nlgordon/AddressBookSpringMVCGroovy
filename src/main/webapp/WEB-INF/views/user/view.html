@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+</head>
+
+<body>
+	<a th:href="@{'/mvc/user/' + ${user.id} + '/edit'}">Edit</a>
+	<a th:href="@{'/mvc/user/' + ${user.id} + '/delete'}"
+		onclick="return confirm('Are you sure you want to delete this user?')">Delete</a>
+		
+	<dl>
+		<dt><label for="username">User Name:</label></dt>
+		<dd th:text="${user.username}">testuser</dd>
+		<dt><label for="email">Email:</label></dt>
+		<dd th:text="${user.email}">testuser@email.com</dd>
+		<dt><label for="firstName">First Name:</label></dt>
+		<dd th:text="${user.firstName}">Test</dd>
+		<dt><label for="lastName">Last Name:</label></dt>
+		<dd th:text="${user.lastName}">User</dd>
+	</dl>
+
+	<a th:href="@{/mvc/user}">Return to List</a><br />
+	<a th:href="@{'/mvc/user/' + ${user.id} + '/address/new'}">Add New</a>
+	
+	<table>
+		<tr><th>Street</th><th>City</th><th>State</th><th>Zip</th></tr>
+		
+		<tr th:each="address : ${user.addresses}">
+			<td th:text="${address.street}">123 Anywhere Lane</td>
+			<td th:text="${address.city}">Urbandale</td>
+			<td th:text="${address.state}">Iowa</td>
+			<td th:text="${address.zip}">50322</td>
+			<td>
+				<a th:href="@{'/mvc/user/' + ${user.id} + '/address/' + ${address.id} + '/edit'}">Edit</a>
+				<a th:href="@{'/mvc/user/' + ${user.id} + '/address/' + ${address.id} + '/delete'}"
+					onclick="return confirm('Are you sure you want to delete this address?')">Delete</a>
+			</td>
+		</tr>
+	</table>
+
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+</head>
+
+<body>
+
+	<form method="post" th:object="${user}" th:action="${#httpServletRequest.requestURI}">
+	<dl>
+		<dt><label for="username">User Name:</label></dt>
+		<dd>
+			<input type="text" th:field="*{username}"/>
+			<span th:errors="*{username}">[error]</span>
+		</dd>
+		<dt><label for="email">Email:</label></dt>
+		<dd>
+			<input type="text" th:field="*{email}"/>
+			<span th:errors="*{email}">[error]</span>
+		</dd>
+		<dt><label for="firstName">First Name:</label></dt>
+		<dd>
+			<input type="text" th:field="*{firstName}"/>
+			<span th:errors="*{firstName}">[error]</span>
+		</dd>
+		<dt><label for="lastName">Last Name:</label></dt>
+		<dd>
+			<input type="text" th:field="*{lastName}"/>
+			<span th:errors="*{lastName}">[error]</span>
+		</dd>
+	</dl>
+	<input type="submit" value="Save" />
+	</form>
+
+</body>
+
+</html>

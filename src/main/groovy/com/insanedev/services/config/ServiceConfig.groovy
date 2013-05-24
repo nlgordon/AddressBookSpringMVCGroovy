@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Configuration
 @EnableJpaRepositories("com.insanedev.repositories")
-@ImportResource("classpath:/com/insanedev/config/root-context.xml")
+//@ImportResource("classpath:/com/insanedev/config/root-context.xml")
 @ComponentScan("com.insanedev.services")
 public class ServiceConfig {
 
