@@ -3,7 +3,7 @@ apply plugin: 'eclipse'
 apply plugin: 'eclipse-wtp'
 apply plugin: 'war'
 
-sourceCompatibility = 1.6
+sourceCompatibility = 1.7
 version = '1.0-SNAPSHOT'
 
 repositories {
@@ -35,5 +35,5 @@ dependencies {
 }
 
 task wrapper(type: Wrapper) {
-	gradleVersion = '1.5'
+	gradleVersion = '1.9'
 }
